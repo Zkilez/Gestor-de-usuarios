@@ -1,16 +1,26 @@
 {
   "dependencies": {
-    "axios": "^1.7.3"
+    "axios": "^1.7.3",
+    "bcrypt-nodejs": "^0.0.3",
+    "ejs-mate": "^4.0.0",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.3",
+    "morgan": "^1.10.0",
+    "passport": "^0.7.0"
   },
   "name": "admon_2024",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
+    "ADMON_2024": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
 }
+
