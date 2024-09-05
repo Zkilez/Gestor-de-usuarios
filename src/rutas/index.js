@@ -24,4 +24,10 @@ archivo.get('/inicioSesion', (req, res, next) => {
     res.render('inicioSesion');
 });
 
+// Ruta para la página de registro (anteriormente formulario)
+archivo.get('/registro', (req, res, next) => {
+    // Renderiza la vista 'registro' cuando se accede a /registro
+    res.render('registro');
+});
+
 module.exports = archivo;  // Exportación del router para ser utilizado en otras partes de la aplicación
