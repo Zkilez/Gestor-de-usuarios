@@ -41,4 +41,3 @@ puerto.listen(puerto.get('escuchar'), () => {//Escuchar es una variable que cont
 }); // Inicia el servidor en el puerto especificado.
 
 puerto.use(require('./rutas/index')); // Importa y usa las rutas definidas en el archivo index.js dentro de la carpeta rutas.
- 

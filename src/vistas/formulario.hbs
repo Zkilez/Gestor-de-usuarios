@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIAGONAL - Registro</title>
+    <title>DIAGONAL - Formulario de Registro</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative; /* Necesario para el pseudo-elemento */
+            position: relative; 
             overflow: hidden; /* Para evitar barras de desplazamiento */
         }
         .register-container {
@@ -95,19 +95,26 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <!-- Imagen del logo de la empresa desde el enlace directo -->
-        <img src="https://us.123rf.com/450wm/vectoryzen/vectoryzen1901/vectoryzen190100931/114991370-letra-b-creativo-ilustrador-de-vector-de-plantilla-de-logotipo-elementos-aislados-vector.jpg?ver=6" alt="Logo Empresa Diagonal">
-        <h1 class="title">DIAGONAL</h1> <!-- Título de la empresa -->
-    </div>
-    <div class="register-container">
-        <h1>Registro</h1>
-        <form action="/registro" method="POST">
-            <input type="email" name="email" placeholder="Escribe tu email" required>
-            <input type="password" name="password" placeholder="Escribe tu contraseña" required>
-            <button type="submit">Crear Cuenta</button>
-        </form>
-        <a href="/inicioSesion">¿Ya tienes cuenta? Inicia sesión</a>
-    </div>
-</body>
-</html>
+<h1 class="text-center">Diagonal</h1> <!-- Título de la página -->
+<div class="container col-sm-6" style="background-color: #f3f3f3; padding: 20px; border-radius: 10px;">
+    <form action="/formulario" method="POST" class="form-horizontal">
+        <!-- EMAIL -->
+        <div class="form-group">
+            <label class="col-sm-12 control-label" for="email">Email</label>
+            <div class="col-sm-12">
+                <input type="email" name="email" id="email" class="form-control" placeholder="Escribe tu email" required>
+            </div>
+        </div>
+        <!-- CONTRASEÑA -->
+        <div class="form-group">
+            <label class="col-sm-12 control-label" for="password">Contraseña</label>
+            <div class="col-sm-12">
+                <input type="password" name="password" id="password" class="form-control" placeholder="Escribe tu contraseña" required>
+            </div>
+        </div>
+        <!-- BOTÓN DE REGISTRO -->
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary">Crear Cuenta</button>
+            <br>
+        </div>
+        
