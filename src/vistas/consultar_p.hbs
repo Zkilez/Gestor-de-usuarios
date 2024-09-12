@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Consultar Pedido</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; 
+            overflow: hidden; /* Para evitar barras de desplazamiento */
+        }
+        .register-container {
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(10px); /* Aplica un efecto de desenfoque */
+        }
+        .register-container h2 {
+            margin-bottom: 20px;
+            color: #000; /* Color negro */
+            font-size: 24px; /* Tamaño del texto */
+            font-weight: bold; /* Peso del texto */
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333; /* Color gris oscuro para el texto del label */
+            font-size: 16px; /* Tamaño del texto */
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://img.freepik.com/foto-gratis/grupo-personas-diversas-trabajo-equipo-manos-unidas_53876-146432.jpg') no-repeat center center fixed;
+            background-size: cover;
+            filter: brightness(70%); /* Ajusta la luminosidad de la imagen para darle un tinte blanquecino */
+            z-index: -1; /* Asegura que el pseudo-elemento esté detrás del contenido */
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Consultar Pedido</h2>
+        <form action="/Consultar_p" method="post">
+            <label for="id_pedido">Id Pedido:</label>
+            <input type="text" id="id_pedido" name="id_pedido" placeholder="Id Pedido" required />
+            <input type="submit" name="Consultar" value="Consultar" />
+        </form>
+    </div>
+</body>
+</html>
