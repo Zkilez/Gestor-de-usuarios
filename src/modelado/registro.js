@@ -21,4 +21,4 @@ UserSchema.pre('save', function(next) {
         .catch(error => next(error));  // Manejamos el error aquí
 });
 
-module.exports = mongoose.model('siete', UserSchema);
+module.exports = mongoose.model('colecion', UserSchema);
