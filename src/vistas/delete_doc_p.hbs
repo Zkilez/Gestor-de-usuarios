@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar Pedido - DIAGONAL</title>
+    <title>Eliminar Pedido - DIAGONAL</title>
     <style>
         :root {
             --primary-color: #007bff;
@@ -116,7 +116,7 @@
             box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
         }
 
-        input[type="submit"] {
+        .btn-delete {
             background-color: var(--primary-color);
             color: var(--white);
             border: none;
@@ -128,8 +128,15 @@
             transition: background-color 0.3s ease;
         }
 
-        input[type="submit"]:hover {
+        .btn-delete:hover {
             background-color: var(--primary-dark);
+        }
+
+        .warning {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            text-align: center;
         }
 
         @media (max-width: 768px) {
@@ -151,32 +158,25 @@
         </header>
         <main class="content">
             <div class="card">
-                <h2>Actualizar Pedido</h2>
-                <form action="/update_p" method="post">
+                <h2>Eliminar Pedido</h2>
+                <form action="/delete_doc_p" method="post" id="deleteForm">
                     <div class="form-group">
                         <label for="id_pedido">ID del Pedido:</label>
-                        <input type="text" id="id_pedido" name="id_pedido" placeholder="Ingrese el ID del pedido" required>
+                        <input type="text" id="id_pedido" name="id_pedido" placeholder="Ingrese el ID del pedido a eliminar" required>
                     </div>
-                    <div class="form-group">
-                        <label for="comprador">Comprador:</label>
-                        <input type="text" id="comprador" name="comprador" placeholder="Nombre del comprador" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="valor">Valor:</label>
-                        <input type="number" id="valor" name="valor" placeholder="Valor del pedido" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="articulo">Artículo:</label>
-                        <input type="text" id="articulo" name="articulo" placeholder="Nombre del artículo" required>
-                    </div>
-                    <div class="form-group"></div>
-                    <label for="descripcion">Descripción:</label>
-                    <input type="text" id="descripcion" name="descripcion" placeholder="Descripción del pedido" required>
-                    </div>
-                    <input type="submit" value="Actualizar Pedido">
+                    <button type="submit" class="btn-delete">Eliminar Pedido</button>
                 </form>
+                <p class="warning">Advertencia: Esta acción no se puede deshacer. Por favor, asegúrese de que desea eliminar este pedido.</p>
             </div>
         </main>
     </div>
+    <script>
+        document.getElementById('deleteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (confirm('¿Está seguro de que desea eliminar este pedido? Esta acción no se puede deshacer.')) {
+                this.submit();
+            }
+        });
+    </script>
 </body>
 </html>

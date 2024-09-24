@@ -1,93 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Pedidos</title>
+    <title>Crear Pedidos - DIAGONAL</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary-color: #007bff;
+            --primary-dark: #0056b3;
+            --secondary-color: #6c757d;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            height: 100vh;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative; 
-            overflow: hidden; /* Para evitar barras de desplazamiento */
+            flex-direction: column;
+            position: relative;
         }
-        .form-container {
-            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            backdrop-filter: blur(10px); /* Aplica un efecto de desenfoque */
-        }
-        .form-container h1 {
-            margin-bottom: 20px;
-            color: #000; /* Color negro */
-            font-size: 28px; /* Tamaño del texto */
-            font-weight: bold; /* Peso del texto */
-        }
-        label {
-            display: block;
-            margin-bottom: 10px;
-            color: #333; /* Color gris oscuro para el texto del label */
-            font-size: 16px; /* Tamaño del texto */
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        input[type="submit"] {
-            background-color: #007bff;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-            margin-top: 20px;
-        }
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
+
         body::before {
             content: "";
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://img.freepik.com/foto-gratis/grupo-personas-diversas-trabajo-equipo-manos-unidas_53876-146432.jpg') no-repeat center center fixed;
+            background: url('https://img.freepik.com/foto-gratis/grupo-personas-diversas-trabajo-equipo-manos-unidas_53876-146432.jpg') no-repeat center center;
             background-size: cover;
-            filter: brightness(70%); /* Ajusta la luminosidad de la imagen para darle un tinte blanquecino */
-            z-index: -1; /* Asegura que el pseudo-elemento esté detrás del contenido */
+            filter: brightness(30%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .content {
+            width: 100%;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .card h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            margin-bottom: 1.5rem;
+        }
+
+        .card-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .form-container h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        input[type="submit"] {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 1rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: var(--primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .card, .form-container {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="form-container">
-        <h1>Crear Pedidos</h1>
-        <form action="/crear_pedido" method="POST">
-            <label for="id_pedido">ID Pedido:</label>
-            <input type="text" id="id_pedido" name="id_pedido" placeholder="ID Pedido" required />
-
-            <label for="comprador">Comprador:</label>
-            <input type="text" id="comprador" name="comprador" placeholder="Comprador" required />
-
-            <!-- Puedes agregar más campos aquí -->
-
-            <input type="submit" value="Crear Pedido" />
-        </form>
+    <div class="container">
+        <header class="header">
+            <h1>DIAGONAL</h1>
+            <p>Sistema de Gestión de Pedidos</p>
+        </header>
+        <main class="content">
+            <div class="card">
+                <h2>Crear Pedido</h2>
+                <p>Crea un nuevo pedido en el sistema. Ingresa los detalles del pedido y guárdalos en la base de datos.</p>
+                <button class="card-button" id="nuevo-pedido-btn">Nuevo Pedido</button>
+                <div class="form-container" id="form-container" style="display: none;">
+                    <h3>Formulario de Nuevo Pedido</h3>
+                    <form action="/crear_pedido" method="POST">
+                        <div class="form-group">
+                            <label for="id_pedido">ID Pedido:</label>
+                            <input type="text" id="id_pedido" name="id_pedido" placeholder="Ingrese el ID del pedido" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="comprador">Comprador:</label>
+                            <input type="text" id="comprador" name="comprador" placeholder="Nombre del comprador" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="valor">Valor:</label>
+                            <input type="number" id="valor" name="valor" placeholder="Valor del pedido" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="articulo">Artículo:</label>
+                            <input type="text" id="articulo" name="articulo" placeholder="Nombre del artículo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Descripción:</label>
+                            <input type="text" id="descripcion" name="descripcion" placeholder="Descripción breve del pedido" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Fecha:</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <input type="submit" value="Crear Pedido">
+                    </form>
+                </div>
+            </div>
+        </main>
     </div>
+    <script>
+        document.getElementById('nuevo-pedido-btn').addEventListener('click', function() {
+            const formContainer = document.getElementById('form-container');
+            formContainer.style.display = formContainer.style.display === 'none' ? 'block' : 'none';
+            this.textContent = formContainer.style.display === 'none' ? 'Nuevo Pedido' : 'Cerrar Formulario';
+        });
+    </script>
 </body>
 </html>

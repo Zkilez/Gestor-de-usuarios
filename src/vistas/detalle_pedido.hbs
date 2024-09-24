@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar Pedido - DIAGONAL</title>
+    <title>Detalle del Pedido - DIAGONAL</title>
     <style>
         :root {
             --primary-color: #007bff;
@@ -72,7 +72,7 @@
 
         .content {
             width: 100%;
-            max-width: 500px;
+            max-width: 600px;
         }
 
         .card {
@@ -90,45 +90,37 @@
             text-align: center;
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
+        .detail-group {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
+        .detail-label {
             font-weight: bold;
+            color: var(--secondary-color);
         }
 
-        input[type="text"] {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
+        .detail-value {
+            text-align: right;
         }
 
-        input[type="text"]:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-        }
-
-        input[type="submit"] {
+        .btn {
+            display: inline-block;
             background-color: var(--primary-color);
             color: var(--white);
-            border: none;
-            padding: 1rem;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
             font-size: 1rem;
             border-radius: 5px;
             cursor: pointer;
-            width: 100%;
             transition: background-color 0.3s ease;
+            text-align: center;
+            margin-top: 1.5rem;
         }
 
-        input[type="submit"]:hover {
+        .btn:hover {
             background-color: var(--primary-dark);
         }
 
@@ -139,6 +131,16 @@
 
             .card {
                 padding: 1.5rem;
+            }
+
+            .detail-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .detail-value {
+                text-align: left;
+                margin-top: 0.25rem;
             }
         }
     </style>
@@ -151,30 +153,32 @@
         </header>
         <main class="content">
             <div class="card">
-                <h2>Actualizar Pedido</h2>
-                <form action="/update_p" method="post">
-                    <div class="form-group">
-                        <label for="id_pedido">ID del Pedido:</label>
-                        <input type="text" id="id_pedido" name="id_pedido" placeholder="Ingrese el ID del pedido" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="comprador">Comprador:</label>
-                        <input type="text" id="comprador" name="comprador" placeholder="Nombre del comprador" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="valor">Valor:</label>
-                        <input type="number" id="valor" name="valor" placeholder="Valor del pedido" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="articulo">Artículo:</label>
-                        <input type="text" id="articulo" name="articulo" placeholder="Nombre del artículo" required>
-                    </div>
-                    <div class="form-group"></div>
-                    <label for="descripcion">Descripción:</label>
-                    <input type="text" id="descripcion" name="descripcion" placeholder="Descripción del pedido" required>
-                    </div>
-                    <input type="submit" value="Actualizar Pedido">
-                </form>
+                <h2>Detalles del Pedido</h2>
+                <div class="detail-group">
+                    <span class="detail-label">ID Pedido:</span>
+                    <span class="detail-value">{{pedido.id_pedido}}</span>
+                </div>
+                <div class="detail-group">
+                    <span class="detail-label">Comprador:</span>
+                    <span class="detail-value">{{pedido.comprador}}</span>
+                </div>
+                <div class="detail-group">
+                    <span class="detail-label">Valor:</span>
+                    <span class="detail-value">{{pedido.valor}}</span>
+                </div>
+                <div class="detail-group">
+                    <span class="detail-label">Artículo:</span>
+                    <span class="detail-value">{{pedido.articulo}}</span>
+                </div>
+                <div class="detail-group">
+                    <span class="detail-label">Descripción:</span>
+                    <span class="detail-value">{{pedido.descripcion}}</span>
+                </div>
+                <div class="detail-group">
+                    <span class="detail-label">Fecha:</span>
+                    <span class="detail-value">{{pedido.date}}</span>
+                </div>
+                <a href="/" class="btn">Volver al inicio</a>
             </div>
         </main>
     </div>
