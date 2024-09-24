@@ -1,24 +1,15 @@
-//Vamos a crear Schema de pedidos
-
-const { type } = require('express/lib/response');
 const mongoose = require('mongoose');
 
-const {Schema} = mongoose;
-const UserSchema = new Schema({
+const { Schema } = mongoose;
 
-id_pedido:{type: String, required:true},
+const PedidoSchema = new Schema({
+    id_pedido: { type: String, required: true, unique: true },  // Asegura que el ID del pedido sea único
+    comprador: { type: String, required: true },
+    valor: { type: Number, required: true },
+    articulo: { type: String, required: true },
+    descripcion: { type: String, required: true },
+    date: { type: Date, default: Date.now }  // Se establece la fecha por defecto
+});
 
-comprador:{type: String, required: true},
-
-valor:{type: Number, required: true},
-
-articulo:{type: String, required: true},
-
-descripcion:{type: String, required: true},
-
-date:{type:Date,default:Date.now}
-
-
-})
-
-module.exports = mongoose.model('pedidos',UserSchema)
+// Exporta el modelo de pedidos
+module.exports = mongoose.model('Pedido', PedidoSchema);  // Cambié el nombre del modelo a 'Pedido'
